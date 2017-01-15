@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&subset=latin-ext,vietnamese" rel="stylesheet">
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'css/form1.css' %}">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext" rel="stylesheet">
+
+		<title>Student Performance</title>
+	</head>
+	<body>
+		<div class="container">
+	    
+		<div class="col-sm-8 col-sm-offset-2 main">
+		<div class="col-sm-6 left-side">
+		<h1>Welcome!</h1>
+		<p>View student profiles and analyze the results with interactive charts and easy to use user interface! Please login to continue!</p>
+		<br>
+		<img src="{% static 'images/nitklogo.png' %}" style="width:150px;height:150px;margin-left:120px" align="middle"></img>
+		</div><!--col-sm-6-->
+		
+		<div class="col-sm-6 right-side">
+		<h1>Login</h1>
+		<p>Please login to view student details</p>
+		
+<!--Form with header-->
+<div class="form">
+
+
+        <div class="form-group">
+		    <label for="form2">Your UserID</label>
+            <input type="text" id="form2" class="form-control">
+            
+        </div>
+
+        <div class="form-group">
+		    <label for="form4">Your password</label>
+            <input type="password" id="form4" class="form-control">
+           
+        </div>
+
+        <div class="text-xs-center">
+            <a href="http://deepak646.blogspot.in/" target="_blank" class="btn btn-deep-purple">Login</a>
+        </div>
+
+
+</div>
+<!--/Form with header-->
+
+		</div><!--col-sm-6-->
+		
+		
+        </div><!--col-sm-8-->
+        
+        </div><!--container-->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="form1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+	</body>
+</html>

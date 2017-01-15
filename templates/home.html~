@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Welcome.</h1>
+            <p>You are on your Dashboard</p>
+        </div>
+
+		<form action="#graphs" method="post" align="center">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" value="Get student's results!" class="btn btn-primary" style="margin-top:10px"/>
+		</form>
+		
+		{% if selected_reg %}
+			{% for r in selected_reg %}
+			<p style="margin-top:10px"><b>Student's name: {{r.name}}</b></p>
+			{% endfor %}
+			<script type="text/javascript">
+			$(function () {
+				//Better to construct options first and then pass it as a parameter
+				{% for r in selected_reg %}
+				var a = "{{ r.mq1 }}";
+				var b = "{{ r.mq2 }}";
+				var c = "{{ r.mq3 }}";
+				var d = "{{ r.ml }}";
+				var e = "{{ r.eq1 }}";
+				var f = "{{ r.eq2 }}";
+				var g = "{{ r.eq3 }}";
+				var h = "{{ r.eq4 }}";
+				var i = "{{ r.el }}";
+				var assign = "{{ r.assign }}";
+				var proj = "{{ r.proj }}";
+				{% endfor %}
+				a = Number(a)
+				b = Number(b)
+				c = Number(c)
+				d = Number(d)
+				e = Number(e)
+				f = Number(f)
+				g = Number(g)
+				h = Number(h)
+				i = Number(i)
+				assign = Number(assign)
+				proj = Number(proj)
+				z=8.0
+				var options = {
+					title: {
+						text: "Midsem"
+					},
+						    animationEnabled: true,
+					data: [
+					{
+						type: "column", //change it to line, area, column, pie, etc
+						
+						dataPoints: [
+							{ label: 'Q1',x:10, y: a },
+							{ label: 'Q2',x:20, y: b },
+							{ label: 'Q3',x:30, y: c },
+							{ label: 'Lab',x:40, y: d }
+						]
+					}
+					]
+				};
+				$("#chartContainer").CanvasJSChart(options);
+				
+				var options2 = {
+					title: {
+						text: "Endsem"
+					},
+						    animationEnabled: true,
+					data: [
+					{
+						type: "column", //change it to line, area, column, pie, etc
+						
+						dataPoints: [
+							{ label: 'Q1',x:10, y: e },
+							{ label: 'Q2',x:20, y: f },
+							{ label: 'Q3',x:30, y: g },
+							{ label: 'Q4',x:40, y: h },
+							{ label: 'Lab',x:50, y: i }
+						]
+					}
+					]
+				};
+				$("#chartContainer2").CanvasJSChart(options2);
+				
+				var options3 = {
+					title: {
+						text: "Assignment and project"
+					},
+						    animationEnabled: true,
+					data: [
+					{
+						type: "column", //change it to line, area, column, pie, etc
+						
+						dataPoints: [
+							{ label: 'Assignment', y: assign },
+							{ label: 'Project', y: proj }
+						]
+					}
+					]
+				};
+				$("#chartContainer3").CanvasJSChart(options3);
+			});
+			
+			</script>
+		{% endif %}
+
+    </div>	
+		<table>
+			<tr>
+				<td id="chartContainer" ></td>
+				<td id="chartContainer2"></td>
+				<td id="chartContainer3"></td>
+
+			</tr>
+		</table>
+		<hr/>
+		
+</div>
+
+<a id="graphs"></a>
+{% endblock %}
